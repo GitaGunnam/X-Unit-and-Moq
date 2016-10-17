@@ -32,7 +32,6 @@ namespace ClassLibrary1.Moq3
 	public interface ICustomerAddressBuilder
 	{
 		Address From(CustomerToCreateDto customer);
-		bool TryParse(string address, out Address outAddress);
 	}
 
 	public class InvalidCustomerMailingAddressException : SystemException
@@ -61,8 +60,10 @@ namespace ClassLibrary1.Moq3
 
 		public void Create(CustomerToCreateDto customerToCreateDto)
 		{
-			var customer = new Customer(customerToCreateDto.Name, customerToCreateDto.City);
-			customer.MailingAddress = _customerAddressBuilder.From(customerToCreateDto);
+			var customer = new Customer(customerToCreateDto.Name, customerToCreateDto.City)
+			{
+				MailingAddress = _customerAddressBuilder.From(customerToCreateDto)
+			};
 
 			if (customer.MailingAddress == null)
 			{

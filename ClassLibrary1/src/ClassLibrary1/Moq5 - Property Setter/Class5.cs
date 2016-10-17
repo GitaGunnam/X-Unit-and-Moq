@@ -43,7 +43,7 @@ namespace ClassLibrary1.Moq5
 				customerToCreateDto.FirstName,
 				customerToCreateDto.LastName);
 
-			_customerRepository.LocalTimeZone = "TimeZone";
+			_customerRepository.LocalTimeZone = TimeZone.CurrentTimeZone.StandardName;
 
 			_customerRepository.Save(customer);
 		}

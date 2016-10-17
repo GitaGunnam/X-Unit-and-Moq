@@ -12,13 +12,16 @@ namespace ClassLibrary1.Moq1
 		{
 			// Arrange
 			var mockRepository = new Mock<ICustomerRepository>();
-			var customerService = new CustomerService(mockRepository.Object);
 
+			mockRepository.Setup(x => x.Save(It.IsAny<Customer>())); //Expectation
+
+			var customerService = new CustomerService(mockRepository.Object);
+			
 			// Act
 			customerService.Create(new CustomerToCreateDto());
 
 			// Assert
-			mockRepository.VerifyAll();
+			mockRepository.VerifyAll(); //Verification - All setups in Arrange area should occur
 		}
 
 		[Fact]
@@ -27,14 +30,12 @@ namespace ClassLibrary1.Moq1
 			// Arrange
 			var mockRepository = new Mock<ICustomerRepository>();
 			var customerService = new CustomerService(mockRepository.Object);
-
-			mockRepository.Setup(x => x.Save(It.IsAny<Customer>()));
-
+			
 			// Act
 			customerService.Create(new CustomerToCreateDto());
 
 			// Assert
-			mockRepository.Verify(x => x.Save(It.IsAny<Customer>()));
+			mockRepository.Verify(x => x.Save(It.IsAny<Customer>())); //Verification
 		}
 	}	
 }

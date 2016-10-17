@@ -38,7 +38,7 @@ namespace ClassLibrary1.Moq4
 				It.Is<string>(
 					fn => fn.Equals(customerToCreateDto.FirstName, System.StringComparison.InvariantCultureIgnoreCase)),
 				It.Is<string>(
-					fn => fn.Equals(customerToCreateDto.LastName, System.StringComparison.InvariantCultureIgnoreCase))));
+					ln => ln.Equals(customerToCreateDto.LastName, System.StringComparison.InvariantCultureIgnoreCase))));
 		}
 
 	}	

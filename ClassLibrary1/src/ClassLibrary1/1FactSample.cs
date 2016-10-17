@@ -21,7 +21,7 @@ namespace ClassLibrary1
 
 
 
-		//[Fact(Skip = "Don't want this test to run")]
+		//[Fact(Skip = "Don't want this test to run, takes too long")]
 		//public void SkippedTest()
 		//{
 		//	Assert.Equal(6, Add(2, 2));
