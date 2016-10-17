@@ -12,7 +12,6 @@ namespace ClassLibrary1.Moq1
 		{
 			// Arrange
 			var mockRepository = new Mock<ICustomerRepository>();
-			//mockRepository.Setup(x => x.Save(It.IsAny<Customer>()));
 			var customerService = new CustomerService(mockRepository.Object);
 
 			// Act
@@ -20,7 +19,22 @@ namespace ClassLibrary1.Moq1
 
 			// Assert
 			mockRepository.VerifyAll();
+		}
+
+		[Fact]
+		public void TheRepositorySaveShouldBeCalledSame()
+		{
+			// Arrange
+			var mockRepository = new Mock<ICustomerRepository>();
+			var customerService = new CustomerService(mockRepository.Object);
+
+			mockRepository.Setup(x => x.Save(It.IsAny<Customer>()));
+
+			// Act
+			customerService.Create(new CustomerToCreateDto());
+
+			// Assert
 			mockRepository.Verify(x => x.Save(It.IsAny<Customer>()));
 		}
-    }	
+	}	
 }

@@ -11,11 +11,26 @@ namespace ClassLibrary1
 		//	Assert.Equal(true, Even(2));
 		//      }
 
+
 		//[Fact]
 		//public void ForDataDrivenTestsOdd()
 		//{
 		//	Assert.Equal(false, Even(3));
 		//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		[Theory]
 		[InlineData(2, true)]

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Moq2
 {
+	#region SETUP
 	public class Customer
 	{
 		public Customer(string name, string city)
@@ -23,6 +24,7 @@ namespace ClassLibrary1.Moq2
 	{
 		void Save(Customer customer);
 	}
+#endregion
 
 	public class CustomerService
 	{

@@ -3,9 +3,8 @@ using Moq;
 
 namespace ClassLibrary1.Moq5
 {
-	public class Moq4
+	public class Moq5
     {
-		//Ensure that the correct values are passed through the dependency
 		[Fact]
 		public void TheLocalTimeZoneShouldBeSet()
 		{
